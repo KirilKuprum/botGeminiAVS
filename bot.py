@@ -46,7 +46,7 @@ async def any_message(                   # [4]
 ):
     print(f"{message.from_user.full_name}: {message.text}")
     if client is None:
-        await message.answer("Hello world!")
+        await message.answer("Oh Fuck you!")
     else:
         try:
             response = client.models.generate_content(
