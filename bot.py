@@ -1,6 +1,7 @@
 import asyncio                           # [1]
 from os import getenv                    # [1]
 from dotenv import load_dotenv
+from PromptBuilder import PromptBuilder
 
 # pip install aiogram
 from aiogram import Bot, Dispatcher      # [1]
