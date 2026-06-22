@@ -40,24 +40,29 @@ async def cmd_start(message: Message):
     await message.answer("Let`s talk!")
 
 # Обробних всіх інших повідомлень
-@dp.message()                            # [3]
-async def any_message(                   # [4]
-        message: Message,                # [5]
+@dp.message()
+async def any_message(
+        message: Message,
 ):
     print(f"{message.from_user.full_name}: {message.text}")
     if client is None:
-        await message.answer("67")
+        await message.answer("Hello world!")
     else:
         try:
+            prompt = PromptBuilder.simplePrompt(message.text)
+            await message.answer(f"Запит: {prompt}")
             response = client.models.generate_content(
                 model="gemini-3.5-flash",
-                contents=message.text,
+                contents=prompt,
             )
         except Exception as err:
             print(f"{type(err)}: {err}")
             await message.answer("Щось пішло не так")
         else:
-            await message.answer(str(response.text)) # [6]
+            response_text = str(response.text) 
+                .removeprefix("```json") 
+                .removesuffix("```")
+            await message.answer(response_text)
 
 
 async def main():
