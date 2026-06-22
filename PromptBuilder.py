@@ -1,5 +1,4 @@
 class PrompBuilder:
     @staticmethod
     def simplePrompt(userPrompt):
-        return (f"Оброби запит користувача {userPrompt}
-        \n")
+        return (f"Оброби запит користувача {userPrompt}")
