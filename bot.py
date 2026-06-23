@@ -4,6 +4,7 @@ import random
 import requests
 from os import getenv
 from dotenv import load_dotenv
+from PromptBuilder import PromptBuilder
 
 from aiogram import Bot, Dispatcher
 from aiogram.types import Message
